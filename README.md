@@ -11,7 +11,7 @@ License: UNLICENSE (public domain).
 ## About
 
 Android-sqlite-native-driver provides:
-- single `SQLiteNative` class with native Java interface to _an important_ subset of sqlite C functions
+- single `SQLiteNative` class with native Java interface to an important subset of sqlite C functions
 - automatic build of `sqlite-native-driver-libs.zip`, with native sqlite library build for major Android targets (`armeabi`, `armeabi-v7a`, `x86`, `x86_64`) that is accessible from the native Java interface
 
 This is accomplished by using [GlueGen](http://jogamp.org/gluegen/www/) around a simple wrapper C module.
@@ -23,6 +23,24 @@ This project is meant to help build a higher-level sqlite interface library, wit
 **WARNING:** The sqlite database and statement handles that are returned by the `SQLiteNative` library functions are raw C pointer values (with `0x100000000` added). If someone uses a sqlite database or statement handle that is not valid, or no longer valid with the `SQLiteNative` library the behavior is undefined (such as a crash). It is *NOT* recommended to use this API directly unless you really understand how this library works internally.
 
 TBD API and some internal details (probably in a blog post)
+
+## SQLite build information
+
+**SQLite version:** `3.15.2`
+
+**SQLite build flags:**
+- `-DSQLITE_TEMP_STORE=2`
+- `-DSQLITE_THREADSAFE=1`
+- `-DSQLITE_ENABLE_FTS3`
+- `-DSQLITE_ENABLE_FTS3_PARENTHESIS`
+- `-DSQLITE_ENABLE_FTS4`
+- `-DSQLITE_ENABLE_RTREE`
+- `-DSQLITE_OMIT_BUILTIN_TEST`
+- `-DSQLITE_OMIT_LOAD_EXTENSION`
+- `-DSQLITE_DEFAULT_PAGE_SIZE=1024`
+- `-DSQLITE_DEFAULT_CACHE_SIZE=2000`
+
+**NOTE:** Old default page/cache size values are used to avoid a "potentially disruptive change" described at: http://sqlite.org/pgszchng2016.html
 
 ## Major TODOs and limitations
 
