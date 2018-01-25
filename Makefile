@@ -11,7 +11,7 @@ regen:
 # NOTE: adding v (verbose) flag for the beginning stage:
 ndkbuild:
 	rm -rf lib libs
-	ndk-build
+	ndk-build -B V=1
 	zip sqlite-native-driver-libs.zip libs/*/*
 	mv libs lib
 	jar cf sqlite-native-driver.jar lib
