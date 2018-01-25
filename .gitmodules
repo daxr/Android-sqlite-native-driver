@@ -3,4 +3,5 @@
 	url = https://github.com/sqlg/gluegentools.git
 [submodule "sqlite-amalgamation"]
 	path = sqlite-amalgamation
-	url = https://github.com/liteglue/sqlite-amalgamation.git
+	url = https://github.com/daxreyes/sqlite-amalgamation.git
+	branch = master
